@@ -10,7 +10,6 @@ pipeline {
       steps {
         echo 'Test'
         sh'/bin/nc -vz localhost 22'
-        sh'/bin/nc -vz localhost 80'
       }
     }
     stage('Push Registry') {
