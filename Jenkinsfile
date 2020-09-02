@@ -19,6 +19,9 @@ pipeline {
 
 
 withCredentials([usernamePassword(credentialsId: 'docker_hub_login', passwordVariable: 'password', usernameVariable: 'user')]) {
+
+sh 'echo $password'
+sh 'echo $user'
           sh 'docker login -u $user -p $password'
           sh 'docker tag app:test dobarqueiro/app:stable'
      sh 'docker push  dobarqueiro/app:stable'
