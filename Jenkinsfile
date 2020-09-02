@@ -10,7 +10,6 @@ pipeline {
       steps {
         echo 'Test'
         sh 'docker run app'
-        sh 'nc -vz localhost 80'
         sh 'docker stop app'
     }
       }
