@@ -16,12 +16,12 @@ pipeline {
       }
     stage('Push Registry') {
       steps {
-    
 
-withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
-          sh 'docker login -u $dockerHubUser -p $dockerHubPassword'
-          sh 'docker tag jenkins jenkins:stable'
-          sh 'docker push xxxxxx/jenkins:stable'
+
+withCredentials([usernamePassword(credentialsId: 'docker_hub_login', passwordVariable: 'password', usernameVariable: 'user')]) {
+          sh 'docker login -u $user -p $password'
+          sh 'docker tag app:test dobarqueiro/app:stable'
+     sh 'docker push  dobarqueiro/app:stable'
         }
 
 
