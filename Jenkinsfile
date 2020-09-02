@@ -9,8 +9,8 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Test'
-        sh 'docker run -d -p 80:80 --rm app'
-        sh 'nc -vz localhost 80'
+        sh 'docker run -d name app app:test'
+        sh 'nc -vz localhost 81'
         sh 'docker stop app'
     }
       }
