@@ -17,6 +17,7 @@ pipeline {
       sh 'docker container stop app'
       }
     }
+    }
     stage('Push Registry') {
       steps {
         sh 'docker tag app:test dobarqueiro/app:stable'
