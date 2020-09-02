@@ -13,12 +13,13 @@ pipeline {
         sh 'nc -vz localhost 80'
         sh 'docker stop app'
     }
+      }
     stage('Push Registry') {
       steps {
         sh 'docker tag app dobarqueiro/app:stable'
         sh 'docker push  dobarqueiro/app:stable'
       }
     }
-  }
+
 }
 }
